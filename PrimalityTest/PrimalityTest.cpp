@@ -55,11 +55,11 @@ void Interface(void)
 	if ((input.compare("h") == 0) || (input.compare("help") == 0))
 	{
 		cout << "Available commands:" << endl;
-		cout << "\t[h]elp" << endl;
-		cout << "\t[f]ermat" << endl;
-		cout << "\t[t]rial" << endl;
-		cout << "\t[q]uit" << endl;
-		cout << "\t<number>" << endl;
+		cout << "\t[h]elp  " << "\t\tHelp" << endl;
+		cout << "\t[f]ermat" << "\t\tChoose Fermat algorithm" << endl;
+		cout << "\t[t]rial " << "\t\tChoose Trial Division algorithm" << endl;
+		cout << "\t[q]uit  " << "\t\tQuit" << endl;
+		cout << "\t<number>" << "\t\tThe number in test" << endl;
 
 		Interface();
 	}
@@ -79,10 +79,23 @@ void Interface(void)
 	}
 	else
 	{
-		if (alCurrent->IsPrime(input))
-			cout << input << " is a prime" << endl;
-		else
-			cout << input << " is not a prime" << endl;
+		bool isnumber = true;
+		for (int i=0; i<input.length(); i++)
+		{
+			if (!isdigit(input[i]))
+			{
+				cout << "Unknown command. Try h for help" << endl;
+				isnumber = false;
+				break;
+			}
+		}
+		if (isnumber)
+		{
+			if (alCurrent->IsPrime(input))
+				cout << input << " is a prime" << endl;
+			else
+				cout << input << " is not a prime" << endl;
+		}
 
 		Interface();
 	}

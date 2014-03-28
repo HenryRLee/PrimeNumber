@@ -81,5 +81,5 @@ bool Trial::IsPrime(string input)
 
 Trial::Trial(void)
 {
-	name = "Trail";
+	name = "Trial Division";
 }
