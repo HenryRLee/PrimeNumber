@@ -59,3 +59,7 @@ bool Fermat::IsPrime(string input)
 	return IsPrime(num);
 }
 
+Fermat::Fermat(void)
+{
+	name = "Fermat";
+}

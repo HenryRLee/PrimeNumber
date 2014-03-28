@@ -26,26 +26,73 @@
 
 #include "PrimalityTest.h"
 #include "Fermat.h"
+#include "Trial.h"
 
-int main(int argc, char *argv[])
+Algorithm * trial = new Trial;
+Algorithm * fermat = new Fermat;
+
+Algorithm * alCurrent;
+
+bool PrimalityTest(Algorithm * algorithm, string input)
 {
-	if (argc > 1)
+	return algorithm->IsPrime(input);
+}
+
+void ChangeAlgorithm(Algorithm * algorithm)
+{
+	alCurrent = algorithm;
+
+	cout << "Current algorithm is " << alCurrent->name << endl;
+}
+
+void Interface(void)
+{
+	string input;
+
+	cout << "> ";
+	cin >> input;
+
+	if ((input.compare("h") == 0) || (input.compare("help") == 0))
 	{
-		Algorithm * PrimalityTest;
+		cout << "Available commands:" << endl;
+		cout << "\t[h]elp" << endl;
+		cout << "\t[f]ermat" << endl;
+		cout << "\t[t]rial" << endl;
+		cout << "\t[q]uit" << endl;
+		cout << "\t<number>" << endl;
 
-		PrimalityTest = new Fermat();
-
-		string input(argv[1]);
-
-		if (PrimalityTest->IsPrime(input))
-			cout << argv[1] << " is a prime" << endl;
-		else
-			cout << argv[1] << " is not a prime" << endl;
+		Interface();
+	}
+	else if ((input.compare("f") == 0) || (input.compare("fermat") == 0))
+	{
+		ChangeAlgorithm(fermat);
+		Interface();
+	}
+	else if ((input.compare("t") == 0) || (input.compare("trial") == 0))
+	{
+		ChangeAlgorithm(trial);
+		Interface();
+	}
+	else if ((input.compare("q") == 0) || (input.compare("quit") == 0))
+	{
+		exit(0);
 	}
 	else
 	{
-		cout << "Usage " << argv[0] << " <number>" << endl;
+		if (alCurrent->IsPrime(input))
+			cout << input << " is a prime" << endl;
+		else
+			cout << input << " is not a prime" << endl;
+
+		Interface();
 	}
+}
+
+int main(int argc, char *argv[])
+{
+	ChangeAlgorithm(fermat);
+
+	Interface();	
 
 	return 0;
 }

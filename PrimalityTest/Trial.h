@@ -1,5 +1,5 @@
 /*
- * Fermat.h for PrimeNumber
+ * Trial.h for PrimeNumber
  *
  * The MIT License (MIT)
  *
@@ -27,18 +27,17 @@
 #pragma once
 
 #include "Algorithm.h"
-#include <gmpxx.h>
 
 using namespace std;
 
-class Fermat :
+class Trial :
 	public Algorithm
 {
 private:
-	inline bool IsPrime(mpz_class num);
+	inline bool IsPrime(long long num);
 
 public:
 	bool IsPrime(string input);
 
-	Fermat(void);
+	Trial(void);
 };

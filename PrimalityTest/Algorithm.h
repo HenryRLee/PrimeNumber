@@ -32,5 +32,6 @@ using namespace std;
 class Algorithm
 {
 public:
+	string name;
 	virtual bool IsPrime(string input) = 0;
 };

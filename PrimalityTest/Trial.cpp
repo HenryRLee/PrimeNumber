@@ -1,5 +1,5 @@
 /*
- * Fermat.h for PrimeNumber
+ * Trial.cpp for PrimeNumber
  *
  * The MIT License (MIT)
  *
@@ -24,21 +24,62 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-#pragma once
+#include "Trial.h"
+#include <stdlib.h>
+#include <math.h>
 
-#include "Algorithm.h"
-#include <gmpxx.h>
-
-using namespace std;
-
-class Fermat :
-	public Algorithm
+inline bool Trial::IsPrime(long long num)
 {
-private:
-	inline bool IsPrime(mpz_class num);
+	int divisor;
+	int squareroot;
 
-public:
-	bool IsPrime(string input);
+	if ((num % 2) == 0)
+	{
+		if (num == 2)
+			return true;
+		else
+			return false;
+	}
 
-	Fermat(void);
-};
+	squareroot = sqrt(num);
+	divisor = 3;
+
+	while (divisor <= squareroot)
+	{
+		/* Last digit is 3 */
+		if (num % divisor == 0)
+			return false;
+
+		divisor += 4;
+
+		/* Last digit is 7 */
+		if (num % divisor == 0)
+			return false;
+
+		divisor += 2;
+
+		/* Last digit is 9 */
+		if (num % divisor == 0)
+			return false;
+
+		divisor += 2;
+
+		/* Last digit is 1 */
+		if (num % divisor == 0)
+			return false;
+
+		divisor += 2;
+	}
+
+	return true;
+}
+
+bool Trial::IsPrime(string input)
+{
+	return IsPrime(atoll(input.c_str()));
+}
+
+Trial::Trial(void)
+{
+	name = "Trail";
+}
