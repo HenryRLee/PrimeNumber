@@ -1,5 +1,5 @@
 /*
- * PrimeCheck.h for PrimeNumber
+ * PrimalityTest.h for PrimeNumber
  *
  * The MIT License (MIT)
  *

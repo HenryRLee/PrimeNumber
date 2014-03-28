@@ -1,4 +1,4 @@
-PrimeCheck: PrimeCheck.o Fermat.o
+PrimalityTest: PrimalityTest.o Fermat.o
 	g++ $^ -lgmpxx -lgmp -o $@
 
 Fermat.o: Fermat.cpp
@@ -8,4 +8,4 @@ Fermat.o: Fermat.cpp
 	g++ $< -c -o $@
 
 clean:
-	rm -f *.o PrimeCheck
+	rm -f *.o PrimalityTest

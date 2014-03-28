@@ -1,5 +1,5 @@
 /*
- * PrimeCheck.cpp for PrimeNumber
+ * PrimalityTest.cpp for PrimeNumber
  *
  * The MIT License (MIT)
  *
@@ -24,7 +24,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-#include "PrimeCheck.h"
+#include "PrimalityTest.h"
 #include "Fermat.h"
 
 int main(int argc, char *argv[])
