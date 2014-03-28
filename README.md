@@ -14,7 +14,6 @@ compile and test.
 
 $ cd PrimalityTest
 $ make
-$ ./PrimalityTest 13
-13 is a prime
+$ ./PrimalityTest
 
 -----------
