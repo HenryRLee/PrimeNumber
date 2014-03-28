@@ -26,13 +26,13 @@
 
 #pragma once
 
-#include "Algorithm.h"
+#include "PrimalityTest.h"
 #include <gmpxx.h>
 
 using namespace std;
 
 class Fermat :
-	public Algorithm
+	public PrimalityTest
 {
 private:
 	inline bool IsPrime(mpz_class num);

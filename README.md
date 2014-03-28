@@ -14,6 +14,6 @@ compile and test.
 
 $ cd PrimalityTest
 $ make
-$ ./PrimalityTest
+$ ./Test
 
 -----------

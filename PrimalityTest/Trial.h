@@ -26,12 +26,12 @@
 
 #pragma once
 
-#include "Algorithm.h"
+#include "PrimalityTest.h"
 
 using namespace std;
 
 class Trial :
-	public Algorithm
+	public PrimalityTest
 {
 private:
 	inline bool IsPrime(long long num);

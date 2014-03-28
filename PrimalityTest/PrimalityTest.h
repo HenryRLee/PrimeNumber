@@ -27,7 +27,11 @@
 #pragma once
 
 #include <iostream>
-
 using namespace std;
 
-
+class PrimalityTest
+{
+public:
+	string name;
+	virtual bool IsPrime(string input) = 0;
+};

@@ -1,5 +1,5 @@
 /*
- * Algorithm.h for PrimeNumber
+ * Test.h for PrimeNumber
  *
  * The MIT License (MIT)
  *
@@ -27,11 +27,7 @@
 #pragma once
 
 #include <iostream>
+
 using namespace std;
 
-class Algorithm
-{
-public:
-	string name;
-	virtual bool IsPrime(string input) = 0;
-};
+
