@@ -1,4 +1,4 @@
-PrimalityTest: PrimalityTest.o Fermat.o
+PrimalityTest: PrimalityTest.o Algorithm.o Fermat.o
 	g++ $^ -lgmpxx -lgmp -o $@
 
 Fermat.o: Fermat.cpp

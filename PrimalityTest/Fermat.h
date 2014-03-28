@@ -26,9 +26,17 @@
 
 #pragma once
 
-#include <iostream>
+#include "Algorithm.h"
 #include <gmpxx.h>
 
 using namespace std;
 
-bool Fermat(string input);
+class Fermat :
+	public Algorithm
+{
+private:
+	inline bool IsPrime(mpz_class num);
+
+public:
+	bool IsPrime(string input);
+};

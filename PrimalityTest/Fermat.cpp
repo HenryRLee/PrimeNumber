@@ -26,7 +26,7 @@
 
 #include "Fermat.h"
 
-inline bool Fermat(mpz_class num)
+inline bool Fermat::IsPrime(mpz_class num)
 {
 	mpz_class product;
 	mpz_class modulo;
@@ -50,12 +50,12 @@ inline bool Fermat(mpz_class num)
 		return false;
 }
 
-bool Fermat(string input)
+bool Fermat::IsPrime(string input)
 {
 	mpz_class num;
 
 	num = input;
 
-	return Fermat(num);
+	return IsPrime(num);
 }
 

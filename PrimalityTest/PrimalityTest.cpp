@@ -31,9 +31,13 @@ int main(int argc, char *argv[])
 {
 	if (argc > 1)
 	{
+		Algorithm * PrimalityTest;
+
+		PrimalityTest = new Fermat();
+
 		string input(argv[1]);
 
-		if (Fermat(input))
+		if (PrimalityTest->IsPrime(input))
 			cout << argv[1] << " is a prime" << endl;
 		else
 			cout << argv[1] << " is not a prime" << endl;
