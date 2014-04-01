@@ -33,6 +33,9 @@ inline bool Trial::IsPrime(long long num)
 	int divisor;
 	int squareroot;
 
+	if (num == 1)
+		return false;
+
 	if ((num % 2) == 0)
 	{
 		if (num == 2)
@@ -41,30 +44,34 @@ inline bool Trial::IsPrime(long long num)
 			return false;
 	}
 
+	if ((num % 3) == 0)
+	{
+		if (num == 3)
+			return true;
+		else
+			return false;
+	}
+
+	if ((num % 5) == 0)
+	{
+		if (num == 5)
+			return true;
+		else
+			return false;
+	}
+
 	squareroot = sqrt(num);
-	divisor = 3;
+	divisor = 7;
 
 	while (divisor <= squareroot)
 	{
-		/* Last digit is 3 */
+		/* Congruent to 1 mod 6 */
 		if (num % divisor == 0)
 			return false;
 
 		divisor += 4;
 
-		/* Last digit is 7 */
-		if (num % divisor == 0)
-			return false;
-
-		divisor += 2;
-
-		/* Last digit is 9 */
-		if (num % divisor == 0)
-			return false;
-
-		divisor += 2;
-
-		/* Last digit is 1 */
+		/* Congruent to 5 mod 6 */
 		if (num % divisor == 0)
 			return false;
 
