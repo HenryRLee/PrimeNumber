@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-inline bool Trial::IsPrime(long long num)
+inline bool Trial::IsPrime(unsigned long long num)
 {
 	int divisor;
 	int squareroot;
@@ -83,7 +83,7 @@ inline bool Trial::IsPrime(long long num)
 
 bool Trial::IsPrime(string input)
 {
-	return IsPrime(atoll(input.c_str()));
+	return IsPrime(stoll(input));
 }
 
 Trial::Trial(void)

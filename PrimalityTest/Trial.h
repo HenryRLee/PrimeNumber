@@ -34,7 +34,7 @@ class Trial :
 	public PrimalityTest
 {
 private:
-	inline bool IsPrime(long long num);
+	inline bool IsPrime(unsigned long long num);
 
 public:
 	bool IsPrime(string input);

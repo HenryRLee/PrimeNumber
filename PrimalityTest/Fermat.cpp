@@ -26,23 +26,41 @@
 
 #include "Fermat.h"
 
-inline bool Fermat::IsPrime(mpz_class num)
+unsigned long long Fermat::FastModExp(unsigned long long exp,
+		unsigned long long mod)
 {
-	mpz_class product;
-	mpz_class modulo;
-	mpz_class sub;
-
-	if ((num % 2) == 0)
+	if (exp == 0)
 	{
-		if (num == 2)
-			return true;
-		else
-			return false;
+		return (1 % mod);
 	}
+	else if (exp == 1)
+	{
+		return (2 % mod);
+	}
+	else
+	{
+		unsigned long long sub;
+		unsigned long long ret;
 
-	sub = num - 1;
-	mpz_ui_pow_ui(product.get_mpz_t(), 2, sub.get_ui());
-	mpz_mod(modulo.get_mpz_t(), product.get_mpz_t(), num.get_mpz_t());
+		sub = FastModExp(exp/2, mod);
+
+		ret = (sub * sub * (1 << (exp % 2))) % mod;
+
+		return ret;
+	}
+}
+
+inline bool Fermat::IsPrime(unsigned long long num)
+{
+	unsigned modulo;
+
+	if (num == 2)
+		return true;
+
+	if (num % 2 == 0)
+		return false;
+
+	modulo = FastModExp(num-1, num);
 
 	if (modulo == 1)
 		return true;
@@ -52,9 +70,9 @@ inline bool Fermat::IsPrime(mpz_class num)
 
 bool Fermat::IsPrime(string input)
 {
-	mpz_class num;
+	unsigned long long num;
 
-	num = input;
+	num = stoll(input);
 
 	return IsPrime(num);
 }

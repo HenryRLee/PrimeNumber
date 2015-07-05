@@ -27,7 +27,6 @@
 #pragma once
 
 #include "PrimalityTest.h"
-#include <gmpxx.h>
 
 using namespace std;
 
@@ -35,7 +34,9 @@ class Fermat :
 	public PrimalityTest
 {
 private:
-	inline bool IsPrime(mpz_class num);
+	unsigned long long FastModExp(unsigned long long exp,
+			unsigned long long mod);
+	inline bool IsPrime(unsigned long long num);
 
 public:
 	bool IsPrime(string input);
